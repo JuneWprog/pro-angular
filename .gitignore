@@ -12,7 +12,7 @@ npm-debug.log
 yarn-error.log
 
 /chapter1/node_modules
-/chapter2/node_modules
+/SportsStore/node_modules
 
 # IDEs and editors
 .idea/
