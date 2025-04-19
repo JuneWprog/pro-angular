@@ -192,6 +192,87 @@ function outer() {
   // iphone15.callTrump()
   
   console.log( iphone15 instanceof Product)
+
+
+
+  class Human{
+    //can be public, private, protected and readonly
+    //the properties can be omitted from the constructor
+      // name:string
+      // age:number
+      constructor(public name:string, public age:number){
+          // this.name = name
+          // this.age = age
+         
+      }
+      get getName():string{
+          return this.name
+      }
+     
+  }
+
+  //inheritance
+  class Student extends Human{
+      constructor(name:string, age:number, public courses:string[]){
+          super(name, age) //call parent constructor
+      }
+      get courseList():string []{
+          return this.courses
+      }
+
+      set enroll(course:string){
+          this.courses.push(course)
+      }
+  }
+
+
+  //interface
+
+interface Employee {
+    name: string;
+    age: number;
+    position?: string; //optional property
+    department: string;
+    getDetails(): string; //method signature
+  }
+//implement an interface
+//interface vs abstract class:  interface is a contract that a class must follow
+//abstract class can have implementation and can have constructor
+//interface can only have method signature and properties
+
+let Josh:Employee = {
+  name:"Josh",
+  age: 25, 
+  department: "IT", 
+  position: "Manager",
+  getDetails: function (): string {
+    return `${this.name}, ${this.age}, ${this.department}, ${this.position?? "N/A"}`;
+  },
+}
+
+console.log(Josh.getDetails())
+
+// interface is a contract that a class must follow
+// multiple classes can implement the same interface
+// provide flexibility to the code than types
+
+class Manager implements Employee {
+  name: string;
+  age: number;
+  position?: string; //optional property
+  department: string;
+
+  constructor(name: string, age: number, department: string, position?: string) {
+    this.name = name;
+    this.age = age;
+    this.department = department;
+    this.position = position;
+  }
+  //override the method signature of the interface
+  getDetails(): string {
+    return `${this.name}, ${this.age}, ${this.department}, ${this.position?? "N/A"}`;
+  }
+}
   
 
   // Each TypeScript or JavaScript file that you add to a project is treated as a module.
