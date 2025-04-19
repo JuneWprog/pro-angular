@@ -13,6 +13,7 @@ yarn-error.log
 
 /chapter1/node_modules
 /SportsStore/node_modules
+/udemy-angular/node_modules
 
 # IDEs and editors
 .idea/
