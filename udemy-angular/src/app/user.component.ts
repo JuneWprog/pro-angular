@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, computed, input } from '@angular/core';
 
+
+type User={
+  id: string;
+  name: string;
+  avatar: string;
+}
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -21,7 +27,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, compu
 })
 export class UserComponent {
     //old way
-  @Input({required:true}) user: any;           // required
+  @Input({required:true}) user!:User;           // required
   @Input({required:true}) selectedUserId: string | null = null; // required
   @Output() select = new EventEmitter<string>(); // output event emitter
 

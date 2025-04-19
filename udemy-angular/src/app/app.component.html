@@ -4,14 +4,23 @@
     <div class ="main">
 
     <ul id ="users">
-        <li *ngFor="let user of users" style="list-style: none; margin: 10px;">
+        <!-- <li *ngFor="let user of users" style="list-style: none; margin: 10px;">
           <app-user
             [user]="user"
             (select)="onSelectUser($event)"
             [selectedUserId]="selectedUserId"
           >
           </app-user>
-        </li>
+        </li> -->
+        @for(user of users; track user.id){
+            <li >
+                <app-user
+                    [user]="user"
+                    (select)="onSelectUser($event)"
+                    [selectedUserId]="selectedUserId"
+                ></app-user>
+            </li>
+        }
       </ul>
     <app-tasks [selectedUserName]="selectedUserName" [selectedUserId]="selectedUserId"></app-tasks>
     </div>
