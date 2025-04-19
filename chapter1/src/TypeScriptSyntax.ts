@@ -1,3 +1,27 @@
+//Primitives: number, string, boolean, null, undefined, symbol, bigint
+// more complex types: arrays, objects, functions, classes, interfaces, enums
+
+//Type inference:  TypeScript can automatically infer the type of a variable based on its value at the time of declaration.
+let courseName = "TypeScript"; // inferred as string
+let courseDuration = 3; // inferred as number
+
+//union types:  allows a variable to hold multiple types of values
+let courseDuration2: number | string = 3; // can be a number or string
+let courseDuration3: number | string = "3 months"; // can be a number or string
+
+
+//type alias:  allows you to create a new name for an existing type
+type Course = {
+    name: string;
+    duration: number;
+    isActive: boolean;
+};
+
+let course: Course = {
+    name: "TypeScript",
+    duration: 3,
+    isActive: true,
+};
 //  Nullish Coalescing Operators
 let val1: string | undefined;
 let val2: string | undefined = "London";
@@ -39,6 +63,26 @@ console.log(`Sum: ${sum}`);
 
 
 //Functions 
+function add(a: number, b: number): number {
+    return a + b;
+}
+
+//generic function:  allows you to create a function that can work with any data type
+function genericFunction<T>(arg: T): T {
+    return arg;
+}
+//must insert same type as the array type T===T
+function insertAtBeginning<T>(arr: T[], value: T): T[] {
+    return [value, ...arr]; //spread operator is used to copy the elements of an array into a new array
+}
+//  use any allow to add any type of value to the array
+function insertAtBeginning2 (arr: any[], value: any): any[] {
+  return [value, ...arr]; //spread operator is used to copy the elements of an array into a new array
+}
+
+let numbers = [1, 2, 3];
+let newNumbers = insertAtBeginning(numbers, 0); // [0, 1, 2, 3] must use the same type as the array
+let newNumbers2 = insertAtBeginning2(numbers, "0"); // [0, 1, 2, 3]
 
 
 //callback function
