@@ -16,10 +16,10 @@ export type Task = {
   imports: [TaskComponent],
   template: `
     <div id="tasks">
-     <p>{{selectedUserName}}</p>
+     <header>{{selectedUserName}}'s Tasks</header>
      <ul>
         @for(task of tasksForSelectedUser; track task.id) {
-        <p>{{task.title}}</p>
+        
           <li>
           <app-task [task] ="task"/>
           </li>
