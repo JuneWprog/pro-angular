@@ -8,11 +8,11 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, compu
     <div>
       <button  (click) ="onSelectUser()">
         <!-- using signal -->
-        <!-- <img [src]="imagePath()" [alt]="user().name" width="50" height="50">
+        <!-- <img [src]="imagePath()" [alt]="user().name" >
         <span>{{ user().name }}</span> -->
 
         <!-- old way -->
-        <img [src]="imagePath" [alt]="user.name" width="50" height="50">
+        <img [src]="imagePath" [alt]="user.name">
         <span>{{ user.name }}</span>
       </button>
     </div>
@@ -48,8 +48,6 @@ export class UserComponent {
 // onSelectUser() {
 //     this.select.emit(this.user.id); // emit the selected user id
 //   }
-
-
 
 
 }

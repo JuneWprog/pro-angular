@@ -1,12 +1,22 @@
-<div class ="main">
-
+<div>
     <app-header></app-header>
-    <div id="users">
+<div class ="container">
+    <div class ="main">
 
-        <app-users></app-users>
-
+    <ul id ="users">
+        <li *ngFor="let user of users" style="list-style: none; margin: 10px;">
+          <app-user
+            [user]="user"
+            (select)="onSelectUser($event)"
+            [selectedUserId]="selectedUserId"
+          >
+          </app-user>
+        </li>
+      </ul>
+    <app-tasks [selectedUserName]="selectedUserName" [selectedUserId]="selectedUserId"></app-tasks>
     </div>
 
 
+</div>
 </div>
 
