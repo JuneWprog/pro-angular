@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, computed, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 
 type User={
@@ -6,13 +7,14 @@ type User={
   name: string;
   avatar: string;
 }
+
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [],
+  imports: [CommonModule],
+
   template: `
     <div>
-      <button  (click) ="onSelectUser()">
+      <button  (click) ="onSelectUser()" [ngClass] ="selectedUserId === user.id ? 'active' : ''">
         <!-- using signal -->
         <!-- <img [src]="imagePath()" [alt]="user().name" >
         <span>{{ user().name }}</span> -->

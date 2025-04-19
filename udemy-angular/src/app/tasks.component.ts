@@ -1,25 +1,42 @@
 import { Component, Input } from '@angular/core';
 import {dummyTasks} from './dummy-tasks'; // import dummy tasks
+import { TaskComponent } from './task.component'; // import TaskComponent
+
+export type Task = {
+    id: string,
+    userId: string,
+    title: string,
+    summary: string,
+    dueDate: string,
+}
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [],
+  imports: [TaskComponent],
   template: `
-    <div>
-     <h3>Tasks</h3>
+    <div id="tasks">
      <p>{{selectedUserName}}</p>
-     <p>{{tasksForSelectedUser.length}}</p>
+     <ul>
+        @for(task of tasksForSelectedUser; track task.id) {
+        <p>{{task.title}}</p>
+          <li>
+          <app-task [task] ="task"/>
+          </li>
+        }
+
+     </ul>
+     
     </div>
   `,
 })
 export class TasksComponent {
     @Input({required:true}) selectedUserId: string | null = null; // required
     @Input({required:true}) selectedUserName: string | null = null; // required
-    tasks = dummyTasks; // use dummy tasks
-    selectedUserTasks: any[] = []; // to store tasks for selected user
+    tasks: Task[] = dummyTasks; // use dummy tasks
+    // selectedUserTasks: Task[] = this.tasks.filter((task: { userId: string | null; }) => task.userId === this.selectedUserId);
     get tasksForSelectedUser() {
-        this.selectedUserTasks = this.tasks.filter((task: { userId: string | null; }) => task.userId === this.selectedUserId); // filter tasks for selected user
-        return this.selectedUserTasks; // return tasks for selected user
+        return this.tasks.filter((task: { userId: string | null; }) => task.userId === this.selectedUserId); // filter tasks for selected user
+        
     }
 }
