@@ -1,5 +1,5 @@
 @if(isAddTaskVisible){
-  <app-new-task (cancelTask)="onAddTaskCancel()" (addTask)="onAddTaskSubmit($event)" />
+  <app-new-task [selectedUserId]="selectedUserId" (cancelTask)="onAddTaskCancel()"  />
 }
 
 <div id ="tasks">
@@ -22,7 +22,7 @@
   <ul>
     @for(task of tasksForSelectedUser; track task.id) {
       <li>
-      <app-task [task] ="task" (complete)="onTaskComplete($event)"/>
+      <app-task [task] ="task" />
       </li>
     }
  </ul>

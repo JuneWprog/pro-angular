@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import {type Task, type NewTask} from "../model/task.model";
 import {FormsModule} from '@angular/forms';
+import {TaskService} from './tasks.service'; // import TaskService to manage tasks
 
 
 @Component({
@@ -12,15 +13,27 @@ import {FormsModule} from '@angular/forms';
 })
 export class NewTaskComponent {
 
-newTask : NewTask={
+
+@Input() selectedUserId!: string; // input property to get selected user ID
+// @Output() addTask = new EventEmitter<NewTask>(); // output event emitter of task object
+@Output() cancelTask = new EventEmitter<void>(); // output event emitter of void type
+
+
+newTask: NewTask = { 
     title: '',
     summary: '',
-    dueDate: '',
-}
-@Output() addTask = new EventEmitter<NewTask>(); // output event emitter of task object
-@Output() cancelTask = new EventEmitter<void>(); // output event emitter of void type
+    dueDate: '', 
+  };
+
+
+//   constructor(private taskService: TaskService) {} // inject TaskService
+  taskSerive = inject(TaskService); // inject TaskService using inject() function
+
+
 onSubmit() {
-    this.addTask.emit(this.newTask); // emit the task object to parent component
+    // this.addTask.emit(this.newTask); // emit the task object to parent component
+    this.taskSerive.addTask(this.newTask, this.selectedUserId); // use TaskService to add the new task
+    this.onCancel(); // close the form after adding the task
 }
 onCancel(){
     this.cancelTask.emit(); // emit the cancel event to parent component

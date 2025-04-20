@@ -7,13 +7,22 @@
 /bazel-out
 
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 
 /chapter1/node_modules
 /SportsStore/node_modules
 /udemy-angular/node_modules
+
+/chapter1/.angular
+/SportsStore/.angular
+/udemy-angular/.angular
+
+/chapter1/.vscode
+/SportsStore/.vscode
+/udemy-angular/.vscode
+
 
 # IDEs and editors
 .idea/
@@ -23,6 +32,8 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.angular
+.vscode
 
 # Visual Studio Code
 .vscode/*
