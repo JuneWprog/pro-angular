@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {HeaderComponent} from './header.component';
-import {TasksComponent} from './tasks.component';
-import { UserComponent } from './user.component';
-import { DUMMY_USERS } from './dummy-users';
+import {HeaderComponent} from './header/header.component';
+import {TasksComponent} from './tasks/tasks.component';
+import { UserComponent } from './user/user.component';
+import { DUMMY_USERS } from './data/dummy-users';
 import { CommonModule } from '@angular/common';
 
 @Component({

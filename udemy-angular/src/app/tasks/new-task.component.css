@@ -49,6 +49,7 @@
   }
   
   button {
+    
     font: inherit;
     cursor: pointer;
     border: none;
@@ -58,7 +59,7 @@
   }
   
   button[type="button"] {
-    color: #bdadcf;
+    color: #f3f1f5;
   }
   
   button[type="button"]:hover,

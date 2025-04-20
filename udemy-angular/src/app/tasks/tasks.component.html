@@ -1,0 +1,28 @@
+@if(isAddTaskVisible){
+  <app-new-task (cancelTask)="onAddTaskCancel()" (addTask)="onAddTaskSubmit($event)" />
+}
+
+<div id ="tasks">
+
+    <header> 
+     <h2>
+     {{selectedUserName}} has {{tasksForSelectedUser.length}} Tasks
+</h2> 
+<menu>
+ <button (click)="openAddTask()">Add</button>
+</menu>
+</header>
+
+
+    @if(tasksForSelectedUser.length >0){
+     <ul>
+       @for(task of tasksForSelectedUser; track task.id) {
+         <li>
+         <app-task [task] ="task" (complete)="onTaskComplete($event)"/>
+         </li>
+       }
+    </ul>
+    } 
+    
+
+</div>

@@ -1,12 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { type User } from '../model/user.model';
 
-
-type User={
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-user',
