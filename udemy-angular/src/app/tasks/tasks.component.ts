@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { dummyTasks } from '../data/dummy-tasks'; // import dummy tasks
 import { TaskComponent } from './task.component'; // import TaskComponent
-import { type Task } from '../model/task.model'; // import Task type
+import { type Task, type NewTask } from '../model/task.model'; // import Task type
 import { NewTaskComponent } from './new-task.component'; // import NewTaskComponent
 
 @Component({
@@ -38,15 +38,12 @@ export class TasksComponent {
   onAddTaskCancel() {
     this.isAddTaskVisible = false; // hide the new task form
   }
-  onAddTaskSubmit(task: Task) {
+  onAddTaskSubmit(newTask: NewTask) {
     
     this.tasks.push({
       id: new Date().getTime().toString(), // generate a new id for the task
       userId: this.selectedUserId ?? 'unknown', // assign the user id to the task, fallback to 'unknown' if null
-      title:  task.title,
-      summary: task.summary,
-      dueDate: task.dueDate,
-
+     ...newTask,
     }); // add the new task to the list
     console.log('Task added:',this.tasks); // log the added task
     this.isAddTaskVisible = false; // hide the new task form

@@ -1,18 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { CardComponent } from '../shared/card/card.component';
 import {type Task} from '../model/task.model'; // import Task type
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
+  imports: [CardComponent, DatePipe],
   template: `
+  <app-card>
     <article>
         <h2>{{task?.title}}</h2>
-        <time>Due Date: {{task?.dueDate}}</time>
+        <time>Due Date: {{task?.dueDate | date: "fullDate"}}</time>
         <p>{{task?.summary}}</p>
         <p class="actions" (click)='completeTask()'><button>Complete</button> </p>
     </article>
+</app-card>
   `,
   styleUrls: ['./task.component.css'],
 })

@@ -14,15 +14,16 @@
 </header>
 
 
-    @if(tasksForSelectedUser.length >0){
-     <ul>
-       @for(task of tasksForSelectedUser; track task.id) {
-         <li>
-         <app-task [task] ="task" (complete)="onTaskComplete($event)"/>
-         </li>
-       }
-    </ul>
-    } 
+   
     
 
 </div>
+@if(tasksForSelectedUser.length >0){
+  <ul>
+    @for(task of tasksForSelectedUser; track task.id) {
+      <li>
+      <app-task [task] ="task" (complete)="onTaskComplete($event)"/>
+      </li>
+    }
+ </ul>
+ } 

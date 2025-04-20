@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {type Task} from "../model/task.model";
+import {type Task, type NewTask} from "../model/task.model";
 import {FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-new-task',
@@ -11,17 +12,15 @@ import {FormsModule} from '@angular/forms';
 })
 export class NewTaskComponent {
 
-task : Task={
-    id: '',
-    userId: '',
+newTask : NewTask={
     title: '',
     summary: '',
     dueDate: '',
 }
-@Output() addTask = new EventEmitter<Task>(); // output event emitter of task object
+@Output() addTask = new EventEmitter<NewTask>(); // output event emitter of task object
 @Output() cancelTask = new EventEmitter<void>(); // output event emitter of void type
 onSubmit() {
-    this.addTask.emit(this.task); // emit the task object to parent component
+    this.addTask.emit(this.newTask); // emit the task object to parent component
 }
 onCancel(){
     this.cancelTask.emit(); // emit the cancel event to parent component

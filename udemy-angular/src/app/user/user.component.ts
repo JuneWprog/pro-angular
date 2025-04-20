@@ -1,14 +1,15 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { type User } from '../model/user.model';
+import {CardComponent} from '../shared/card/card.component'; // import CardComponent
 
 
 @Component({
   selector: 'app-user',
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
 
   template: `
-    <div>
+    <app-card>
       <button  (click) ="onSelectUser()" [ngClass] ="selectedUserId === user.id ? 'active' : ''">
         <!-- using signal -->
         <!-- <img [src]="imagePath()" [alt]="user().name" >
@@ -18,7 +19,7 @@ import { type User } from '../model/user.model';
         <img [src]="imagePath" [alt]="user.name">
         <span>{{ user.name }}</span>
       </button>
-    </div>
+    <app-card>
   `,
   styleUrls: ['./user.component.css'], // optional if you want styling
 })
