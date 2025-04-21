@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'Todo List';
 
   users = DUMMY_USERS;
-  selectedUserId: string | null = this.users[0].id; // to store the selected user id
+  selectedUserId: string  = this.users[0].id; // to store the selected user id
   onSelectUser(id:string){
     //this receives the selected user id from the child component
     this.selectedUserId = id; // set the selected user id
