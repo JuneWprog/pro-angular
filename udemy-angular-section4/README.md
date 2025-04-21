@@ -1,3 +1,3 @@
 How to debug angular
 
-sources->page->
+sources->page->src ->app ->*.ts set breakpoint
