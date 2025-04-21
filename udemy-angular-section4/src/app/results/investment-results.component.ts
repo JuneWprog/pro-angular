@@ -1,18 +1,23 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {type InvestmentResult} from '../module/investmentResult';
+import { Component, inject, Input } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+// import {type InvestmentResult} from '../module/investmentResult';
+import { InvestmentService } from '../investment.service';
 
 
 @Component({
   selector: 'app-investment-results',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CurrencyPipe],        // Importing CurrencyPipe for currency formatting
   templateUrl: './investment-results.component.html',
     styleUrls: ['./investment-results.component.css'],
 })
 export class InvestmentResultsComponent {
+  //  constructor(private investmentService: InvestmentService){}
+  investmentService = inject(InvestmentService)
+
+  get investmentResults(){
+    return this.investmentService.investmentResults
+  }
+
    
-    @Input() investmentResults: InvestmentResult[] // Input property to receive data from parent component
-    | undefined// Input property to receive data from parent component
-    
 }

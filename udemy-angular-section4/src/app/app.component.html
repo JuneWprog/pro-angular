@@ -1,6 +1,22 @@
+<!-- using input, output -->
+<!-- <div class="container">
+  <app-header></app-header>
+  <app-user-input (inputData)="onCalculateInvestmentResults($event)"></app-user-input> -->
+  <!-- using signal -->
+  <!-- <app-investment-results [investmentResults]="investmentResults()"></app-investment-results>
+ 
+  using input
+  <app-investment-results [investmentResults]="investmentResults"></app-investment-results>
+
+</div> --> 
+
+<!-- using service -->
 <div class="container">
   <app-header></app-header>
-  <app-user-input (inputData)="getInputData($event)"></app-user-input>
-  <app-investment-results [investmentResults]="investmentResults"></app-investment-results>
+  <app-user-input ></app-user-input>
+  <!-- using signal -->
+  <app-investment-results></app-investment-results>
+  <!-- using input -->
+  <!-- <app-investment-results [investmentResults]="investmentResults"></app-investment-results> -->
 
 </div>

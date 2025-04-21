@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, signal} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import {type InputData} from './module/inputData';
 import { UserInputComponent } from './user-input/user-input.component';
@@ -20,28 +20,33 @@ export class AppComponent {
     duration: 0,
     expectedReturn: 0,
   }
+  //using input
+  // investmentResults: InvestmentResult[] = [];
+  investmentResults = signal<InvestmentResult[]>([]); // Array to hold investment results
 
-  investmentResults: InvestmentResult[] = [];
-
-  //get input from user-input component
-  getInputData(inputData: InputData) {
+  //get input from user-input component and calculate investment results
+  onCalculateInvestmentResults(inputData: InputData) {
     this.inputData = inputData;
-    console.log(this.inputData);
-    this.getResults();
+    this.calculateResults();
   }
 
   //calculate investment results
-  getResults(){
-    this.investmentResults = calculateInvestmentResults(this.inputData).map(result => ({
-      year: result.year,
+  calculateResults(){
+    //this.investmentResults = calculateInvestmentResults(this.inputData).map(result => ({
+      let results = calculateInvestmentResults(this.inputData).map(result => ({
+  
+    year: result.year,
       investmentValue: result.valueEndOfYear,
       interestYear: result.interest,
       totalInterest: result.totalInterest,
       investedCapital: result.totalAmountInvested
     }));
-    console.log(this.investmentResults);
-
+    //this.investmentResults = results;
+    this.investmentResults.set(results); // Update the signal with the new results
   }
 
+  }
+  
 
-}
+
+
