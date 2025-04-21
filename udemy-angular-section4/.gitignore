@@ -7,22 +7,9 @@
 /bazel-out
 
 # Node
-node_modules
+/node_modules
 npm-debug.log
 yarn-error.log
-
-/chapter1/node_modules
-/angular-modules/node_modules
-/udemy-angular/node_modules
-
-/chapter1/.angular
-/angular-modules/.angular
-/udemy-angular/.angular
-
-/chapter1/.vscode
-/angular-modules/.vscode
-/udemy-angular/.vscode
-
 
 # IDEs and editors
 .idea/
@@ -32,8 +19,6 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
-.angular
-.vscode
 
 # Visual Studio Code
 .vscode/*
