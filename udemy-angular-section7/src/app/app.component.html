@@ -11,4 +11,12 @@
   }
 
 <p *ngIf="isAdmin()">only Admin  see this</p>
+
+<!-- <p appAuth="admin">only Admin  see this structural directive</p> -->
+<!-- structural directive -->
+<ng-template appAuth="admin"> 
+  <p >only Admin  see this structural directive</p>
+
+</ng-template>
+
 </main>
