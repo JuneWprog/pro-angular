@@ -23,3 +23,7 @@ input() — Creates an input binding (a way to pass values from HTML into this d
 ```
 host means: “What should happen between the directive and the HTML element it is attached to?”
 When you attach this directive to a DOM element, bind some DOM events/properties to methods or values from the directive class.”
+
+Pipes:
+trasnform the way data is displayed
+currency pipe
