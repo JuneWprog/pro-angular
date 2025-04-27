@@ -35,7 +35,7 @@
   <p>New York: {{ currentTemperaturs.newYork | temp :'fahrenheit': 'celsius'}}</p>
   <p>Berlin: {{ currentTemperaturs.berlin | temp:'fahrenheit' }}</p>
   <p>Paris: {{ currentTemperaturs.paris | temp:'fahrenheit':'celsius' }}</p>
-  <p>Chicago: {{ currentTemperaturs.chicago | number: '1.1-2' }}</p>
+  <p>Chicago: {{ currentTemperaturs.chicago |temp:'fahrenheit':'celsius' }}</p>
 </article>
 
 
@@ -49,8 +49,21 @@
   </header>
   <ul>
     @for (temperature of historicTemperatures; track temperature) {
-    <li (click)="onReset($index)">{{ temperature }}</li>
+    <li (click)="onReset($index)">{{ temperature| temp:'celsius'}}</li>
     }
+
+    <!-- sorted temperature list -->
+
+   
+  
+  </ul>
+ <h2>Sorted Temp</h2>
+  <ul>
+    @for (temperature of historicTemperatures |sort:'desc'; track temperature) {
+      <li (click)="onReset($index)">{{ temperature| temp:'celsius'}}</li>
+      }
+
+
   </ul>
 </article>
 

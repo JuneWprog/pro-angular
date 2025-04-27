@@ -34,3 +34,26 @@ Decimal pipe
 Percent Pipe
 async pipe
 jsonpipe
+
+
+custom pipe:
+```shell
+ng g p   pipename
+
+```
+Pure vs Impure Pipe:
+
+Pure pipes = safe, fast, only run when input reference changes.
+
+Impure pipes = risky, run all the time, can slow down app.
+
+Always prefer pure pipes unless you really need to react to internal mutations (like filtering dynamic arrays).
+
+
+pipe usage : data | pipename: param1: param2
+
+When to use pipe?
+only when you want change the display
+
+When  not to use pipe?
+data manipulation

@@ -8,13 +8,14 @@ import { AuthDirective } from './auth/auth.directive';
 
 //custom pipe to convert celsius to fahrenheit
 import { TemperaturePipe } from './temperature.pipe';
+import { SortPipe } from "./sort.pipe";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [AuthComponent, LearningResourcesComponent,CommonModule, AuthDirective, TemperaturePipe],
+  imports: [AuthComponent, LearningResourcesComponent, CommonModule, AuthDirective, TemperaturePipe, SortPipe],
 })
 export class AppComponent {
   private authService = inject(AuthService);
