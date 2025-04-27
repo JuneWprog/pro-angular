@@ -26,4 +26,11 @@ When you attach this directive to a DOM element, bind some DOM events/properties
 
 Pipes:
 trasnform the way data is displayed
-currency pipe
+Built-in Pipes:
+uppercase/lowercase pipe
+Data Pipe
+Currency pipe
+Decimal pipe
+Percent Pipe
+async pipe
+jsonpipe
