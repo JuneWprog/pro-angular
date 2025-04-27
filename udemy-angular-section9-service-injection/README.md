@@ -17,3 +17,11 @@ Dependency = what you need (service, object).
 Injection = getting it from outside, not building it yourself.
 
 Angular DI = system that provides dependencies automatically.
+
+
+// 4 ways to inject a service in angular
+ 1. using constructor injection (recommended) - this is the most common way to inject a service in Angular
+ 2. using inject function - this is a new way to inject a service in Angular, introduced in Angular 14. It is a more functional way to inject a service and can be used in standalone components and other places where constructor injection is not possible.
+ 3. using element injector - this is a new way to inject a service in Angular, introduced in Angular 14. It is a more functional way to inject a service and can be used in standalone components and other places where constructor injection is not possible.
+ 4. using root injector - this is a new way to inject a service in Angular, introduced in Angular 14. It is a more functional way to inject a service and can be used in standalone components and other places where constructor injection is not possible.
+
